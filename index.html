@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Однорукий Бандит</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        #result { margin-top: 20px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Однорукий Бандит</h1>
+    <input type="number" id="stake" placeholder="Введите ставку" />
+    <button onclick="spin()">Крутить!</button>
+    <div id="result"></div>
+
+    <script>
+        function spin() {
+            const stake = document.getElementById('stake').value;
+            const symbols = ['BRILLIANT', 'RED_SEVEN', 'BLUE_SEVEN', 'GREEN_SEVEN', 'CHERRY', 'WILD', 'BAR_1', 'BAR_2', 'BAR_3'];
+            const spinResult = [
+                symbols[Math.floor(Math.random() * (symbols.length - 1))], // Первые два барабана
+                symbols[Math.floor(Math.random() * (symbols.length - 1))],
+                symbols[Math.floor(Math.random() * symbols.length)] // Третий барабан может быть WILD
+            ];
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerText = `Результат спина: ${spinResult.join(', ')}`;
+            // Здесь можно добавить логику для расчета выигрыша
+        }
+    </script>
+</body>
+</html>
